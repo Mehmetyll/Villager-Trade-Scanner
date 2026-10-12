@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 26.x targets need Java 25. Targets that need an older JDK get one
+      # provisioned by the foojay resolver via Gradle toolchains.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 25
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      # Builds every Minecraft target and fails on a locale key or
+      # format-specifier mismatch via the checkLocales task.
+      - name: Build all targets
+        run: ./gradlew buildAll --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jars
+          path: build/libs/*/*.jar
+          if-no-files-found: error

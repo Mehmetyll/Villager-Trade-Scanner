@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.mehmetyl.vtp.mixin.client",
+  "compatibilityLevel": "${java}",
+  "client": [
+    "ClientPacketListenerMixin",
+    "EntityRendererMixin"${glow_mixin}
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,16 @@
+#
+# https://help.github.com/articles/dealing-with-line-endings/
+#
+
+# Linux start script must stay LF or CI runners fail with "bad interpreter".
+/gradlew        text eol=lf
+
+# Windows script files.
+*.bat           text eol=crlf
+
+# Language files are UTF-8 and read byte-for-byte by Minecraft.
+*.json          text eol=lf
+
+# Never let Git rewrite binaries.
+*.png           binary
+*.jar           binary

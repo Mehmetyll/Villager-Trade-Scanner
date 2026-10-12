@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.mehmetyl.vtp.mixin",
+  "compatibilityLevel": "${java}",
+  "mixins": [
+    "AbstractVillagerAccessor"${villager_trade_mixin}
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "villager_trade_scanner",
+  "version": "${version}",
+  "name": "Villager Trade Scanner",
+  "description": "See what villagers are selling without opening their trade GUI. Filter by profession, item, price or enchantment; matching villagers glow with a label you can read from a distance.",
+  "authors": [
+    "mehmetyl"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Mehmetyll/Villager-Trade-Scanner",
+    "sources": "https://github.com/Mehmetyll/Villager-Trade-Scanner",
+    "issues": "https://github.com/Mehmetyll/Villager-Trade-Scanner/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/villager_trade_scanner/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.mehmetyl.vtp.VtpMod"
+    ],
+    "client": [
+      "me.mehmetyl.vtp.client.VtpClientMod"
+    ]
+  },
+  "mixins": [
+    "villager_trade_scanner.mixins.json",
+    {
+      "config": "villager_trade_scanner.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft}"
+  }
+}
